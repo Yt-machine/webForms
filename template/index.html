@@ -1,0 +1,31 @@
+<!--index.html-->
+{% extends "base.html" %}
+{% block title %}我有话要说{% endblock %}
+{% block content %}
+    <div class="container">
+        <form name="my form" action="/" method="get">
+            现在的心情：</br>
+            {% for m in moods %}
+               <input type='radio' name='mood' value='{{ m.status }}'>{{ m.status }}
+            {% endfor %}
+            </br>
+            心情留言板：</br>
+            <textarea name="user_post"  cols="70" rows="3"></textarea></br>
+            <label for="user_id">您的昵称：</label>
+            <input id="user_id" type="text" name="user_id">
+            <label for="user_pass">登陆密码：</label>
+            <input id="user_pass" type="password" name="user_pass">
+            <input type="submit" value="登录">
+            <input type="reset" value="清除重填">
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading" align="center">
+                        <h3>~~宝宝心里苦，宝宝只在这里不说~~</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
