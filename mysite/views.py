@@ -49,10 +49,10 @@ def list(request):
 
 
 def posting(request):
-    template = get_template('post.html')
+    template = get_template('posting.html')
     moods = models.Mood.objects.all()
     message = '如果要张贴信息,那么每一个字段都要填...'
-    request_context=RequestContext(request)
-    request_context.push(locals())
+    request_context = {'moods': moods, 'message': message}
+    html = template.render(request, request_context)
 
-    return HttpResponse(request_context)
+    return HttpResponse(html)
