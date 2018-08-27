@@ -5,7 +5,7 @@ from django.db import models
 class Mood(models.Model):
     status = models.CharField(max_length=10, null=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.status
 
 
@@ -17,5 +17,5 @@ class Post(models.Model):
     pub_time = models.DateTimeField(auto_now=True)
     enabled = models.BooleanField(default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.message

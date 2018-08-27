@@ -18,6 +18,10 @@ from django.urls import path
 from mysite import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index),
+    path('<int:pid>/<slug:del_pass>', views.index),
     path('admin/', admin.site.urls),
+    path('list/', views.list),
+    path('post/', views.posting),
+
 ]
